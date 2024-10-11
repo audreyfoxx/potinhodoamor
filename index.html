@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pote do Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        #jar {
+            width: 500px;
+            height: 500px;
+            background: url('jar.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            transition: transform 0.2s ease; /* Transição suave */
+        }
+
+        /* Animação de pulsar */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Classe que será aplicada ao clicar para o efeito de pulsar */
+        .pulse {
+            animation: pulse 0.5s;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 35px;
+            font-family: 'Dancing Script', cursive;
+            color: #333;
+            text-align: center;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+<body>
+    <div id="jar"></div>
+    <div id="message">Clique no pote para ver uma mensagem de amor!</div>
+
+
+    <script>
+        const messages = [
+            "Fiz esse pote do amor pra você, ele está repleto igual meu coração.",
+            "Todos os dias são uma nova oportunidade de te amar.",
+            "São aproximadamente 152 dias divindo meus dias ao seu lado.",
+            "Não canso de inventar formas de dizer que eu te amo!",
+            "Todos os dias eu sou grata por ter você na minha vida.",
+            "Você não tem ideia do quanto eu admiro você, meu amor.",
+            "Quero que você saiba que nunca me senti tão amada na vida.",
+            "Você me fascina, me encanta, me conquista e me deixa nas nuvens.",
+            "Nada mais importa quando eu estou nos seus braços.",
+            "Amar você é uma das coisas mais lindas que eu já fiz.",
+            "Eu amo seu cabelo, amo seu olhar, amo sua voz, amo você inteiro!",
+            "Meu coração é seu, meu corpo é seu, eu amo ser sua.",
+            "Te amo patoda vida.",
+            "A vida é melhor desde que você chegou.",
+            "Mesmo que eu não te veja, posso sentir quando pensa em mim.",
+            "O lado bom da vida é o lado que tem você comigo.",
+            "Te amo 24 horas por segundo.",
+            "Você é o meu significado favorito do que é o amor.",
+            "Que bom que no meio de tudo que poderia ter acontecido, a gente aconteceu.",
+            "O jeitinho que a gente combina é diferente.",
+            "Tem sido LINDO compartilhar a vida com você.",
+            "Até a minha parte lúcida é louca por você.",
+            "Você foi o meu inesperado mais esperado.",
+            "Gosto da forma como você acelera meu coração e de como você o acalma.",
+            "Eu tenho tanto tanto tanto amor por você que no meu coração ele não cabe.",
+            "Ao seu lado todo instante é tudo.",
+            "Te amar é minha rotina preferida.",
+            "Toda vez que eu penso em você eu fico feliz.",
+            "Tem sido você desde o dia que te conheci.",
+            "Mesmo sem tempo, sobra tempo pra pensar em você.",
+            "Se nada dura pra sempre, espero que você seja meu nada.",
+            "Você me faz querer acordar todos os dias.",
+            "Você me inspira todos os dias.",
+            "Você tem um jeito tão único, tão seu, você é a coisa mais linda do mundo.",
+            "Obrigada por me fazer dormir sorrindo.",
+            "Eu me apaixonei pelo jeito que você me tocou sem usar as mãos.",
+            "Eu ainda te olho da mesma forma que te olhei desde a primeira vez que eu te vi.",
+            "Eu amo seu beijo demorado.",
+            "Amo meu nome na sua boca.",
+            "Você é o dono de todos os meus beijos.",
+            "Bruno, meu amor, meu benzinho, minha vida, minha paixão, eu te amo demais, que venham muito mais meses ao seu lado."
+           
+        ];
+
+          let currentMessageIndex = 0;
+
+        document.getElementById("jar").onclick = function() {
+            // Exibe a mensagem
+            document.getElementById("message").innerText = messages[currentMessageIndex];
+
+            // Efeito de pulsar
+            const jar = document.getElementById("jar");
+            jar.classList.add("pulse");
+
+            // Remove a classe após a animação para permitir novos cliques
+            setTimeout(() => {
+                jar.classList.remove("pulse");
+            }, 500); // A duração da animação é de 0.5s
+
+            // Atualiza a mensagem
+            currentMessageIndex++;
+            if (currentMessageIndex >= messages.length) {
+                currentMessageIndex = 0;
+            }
+        }
+    </script>
+</body>
+</html>
